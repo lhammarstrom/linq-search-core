@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Search.Core.Attributes;
 
 namespace Linq.Search.Core.Tests
 {
@@ -20,26 +21,6 @@ namespace Linq.Search.Core.Tests
             };
         }
 
-        public IQueryable<Person> SearchForBruce()
-        {
-            var persons = new List<Person>
-            {
-                new Person
-                {
-                    Name = "Bruce Wayne",
-                    Description = "Batman",
-                    Facility = new Facility
-                    {
-                        Name = "Batcave"
-                    }
-                }
-            };
-
-            return persons
-                .AsQueryable();
-                //.SearchFor("Bruce");
-        }
-
         private void SeedPeople()
         {
             Persons = new List<Person>
@@ -57,8 +38,6 @@ namespace Linq.Search.Core.Tests
 
     public class Person
     {
-        public Person() { }
-
         public Person(string name, string favoriteFood, Facility facility, string description = "")
         {
             Name = name;
@@ -67,29 +46,27 @@ namespace Linq.Search.Core.Tests
             Description = description;
         }
 
-        //[Searchable]
+        [Searchable]
         public string Name { get; set; }
 
-        //[Searchable]
+        [Searchable]
         public string FavoriteFood { get; set; }
 
         public string Description { get; set; }
 
-        //[Searchable]
+        [Searchable]
         public Facility Facility { get; set; }
     }
 
     public class Facility
     {
-        public Facility() { }
-
         public Facility(string name, string address)
         {
             Name = name;
             Address = address;
         }
 
-        //[Searchable]
+        [Searchable]
         public string Name { get; set; }
 
         public string Address { get; set; }

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Linq.Search.Core", "Linq.Search.Core\Linq.Search.Core.csproj", "{8A4C3762-BA2A-4DC7-91B1-1F3F4A377B9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Search.Core", "Linq.Search.Core\Linq.Search.Core.csproj", "{8A4C3762-BA2A-4DC7-91B1-1F3F4A377B9E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Linq.Search.Core.Tests", "Linq.Search.Core.Tests\Linq.Search.Core.Tests.csproj", "{755D7849-1DA3-476D-BF28-EB5F994F878C}"
 EndProject
