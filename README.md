@@ -1,6 +1,6 @@
 # Linq.Search.Core
+[![Build status](https://ci.appveyor.com/api/projects/status/u8370f2si1qvreva?svg=true)](https://ci.appveyor.com/project/lhammarstrom/linq-search-core)
 [![codecov](https://codecov.io/gh/lhammarstrom/linq.search.core/branch/master/graph/badge.svg)](https://codecov.io/gh/lhammarstrom/linq.search.core)
-[![Coverage Status](https://coveralls.io/repos/github/lhammarstrom/linq.search.core/badge.svg?branch=master)](https://coveralls.io/github/lhammarstrom/linq.search.core?branch=master)
 [![GitHub issues](https://img.shields.io/github/issues/lhammarstrom/linq.search.core.svg)](https://github.com/lhammarstrom/linq.search.core/issues)
 [![GitHub stars](https://img.shields.io/github/stars/lhammarstrom/linq.search.core.svg)](https://github.com/lhammarstrom/linq.search.core/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/lhammarstrom/linq.search.core/master/LICENSE)
