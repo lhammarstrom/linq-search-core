@@ -70,6 +70,14 @@ namespace Linq.Search.Core.Tests
             Assert.False(AmountOfFacilityResultsFor("Batcave") != 1);
         }
 
+        [Fact]
+        public void PeopleInBatcave()
+        {
+            var people = _persons.SearchFor("Batcave").ToArray();
+            Assert.True(people.Count(p => p.Name == "Bruce Wayne") == 1 &&
+                        people.Count(p => p.Name == "Mary Poppins") == 1);
+        }
+
         // private properties for testing
         private int AmountOfPersonResultsFor(string search) => _persons.SearchFor(search).Count();
         private int AmountOfFacilityResultsFor(string search) => _facilities.SearchFor(search).Count();
