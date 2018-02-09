@@ -1,8 +1,9 @@
 ﻿using System.Linq.Dynamic.Core;
+using System.Linq.Search.Core.Extensions;
 
-namespace System.Linq.Search.Core.Extensions
+namespace System.Linq.Search.Core
 {
-    public static class QueryableExtensions
+    public static class Search
     {
         // extension which allows one to dynamically query data
         // depending on whether the property that one wants to query by

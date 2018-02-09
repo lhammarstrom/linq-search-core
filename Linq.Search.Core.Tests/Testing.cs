@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using System.Linq.Search.Core.Extensions;
+using System.Linq.Search.Core;
 using Xunit;
 
 namespace Linq.Search.Core.Tests
