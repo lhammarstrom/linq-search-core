@@ -1,15 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net40;net45;net46;netstandard2.0</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
-    <Version>1.0</Version>
-    <FileVersion>1.0</FileVersion>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0</FileVersion>
     <Authors>Lennart Hammarström</Authors>
     <Description>Scalable search-function for databases using Linq.</Description>
     <Copyright>Copyright (c) 2018 Lennart Hammarström</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <ApplicationIcon />
+    <ApplicationIcon>linq.search.ico</ApplicationIcon>
     <OutputType>Library</OutputType>
     <StartupObject />
   </PropertyGroup>
