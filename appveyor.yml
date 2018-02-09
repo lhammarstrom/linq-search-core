@@ -1,11 +1,42 @@
-before_build:
- - nuget restore
+os: Visual Studio 2017
+
+configuration:
+- Debug
+
+platform: Any CPU
+
+init:
+- ps: $Env:LABEL = "CI" + $Env:APPVEYOR_BUILD_NUMBER.PadLeft(5, "0")
+
+install:
+  - ps: Start-FileDownload 'https://download.microsoft.com/download/D/7/2/D725E47F-A4F1-4285-8935-A91AE2FCC06A/dotnet-sdk-2.0.3-win-gs-x64.exe'
+  - cmd: dotnet-sdk-2.0.3-win-gs-x64.exe /quiet
+  - ps: $env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "true"
+
+environment:
+  PATH: $(PATH);$(PROGRAMFILES)\dotnet\
+  COVERALLS_REPO_TOKEN:
+    secure: tsTABRbCmdWFLT194XNIrpurerOfjN6cEoxt2RaSUfLmUIgra/+CwuqVkv0sPRop
+
 build_script:
- - msbuild /verbosity:quiet "System.Linq.Search.Core"
+# Restore all
+- dotnet restore Linq.Search.Core\Linq.Search.Core.csproj
+- dotnet restore Linq.Search.Core.Tests\Linq.Search.Core.Tests.csproj
+
+# Build Code
+- dotnet build Linq.Search.Core\Linq.Search.Core.csproj -c %CONFIGURATION% --framework netstandard2.0
+
+# Build Tests
+- dotnet build Linq.Search.Core.Tests\Linq.Search.Core.Tests.csproj -c %CONFIGURATION%
+
 test_script:
- - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:"Linq.Search.Core.Tests\bin\Debug\netcoreapp2.0\Linq.Search.Core.Tests.dll -noshadow" -output:"coverage.xml" -filter:"+[System.Linq.Search.Core*]* -[Linq.Search.Core.Tests*]*"
+# Run tests for EntityFramework.DynamicLinq
+- dotnet test -c %CONFIGURATION% --no-build Linq.Search.Core.Tests\Linq.Search.Core.Tests.csproj
+
 after_test:
-  - ps: |
-      $env:PATH = 'C:\msys64\usr\bin;' + $env:PATH
-      Invoke-WebRequest -Uri 'https://codecov.io/bash' -OutFile codecov.sh
-      bash codecov.sh -f "coverage.xml"
+# Use System.Linq.Search.Core.Tests as coverage tests
+  - nuget.exe install OpenCover -ExcludeVersion
+  - pip install codecov
+
+  - cmd: '"OpenCover\tools\OpenCover.Console.exe" -target:dotnet.exe -targetargs:"test Linq.Search.Core.Tests\Linq.Search.Core.Tests.csproj --configuration %CONFIGURATION% --framework netcoreapp2.0 --no-build" -output:coverage.xml -register:user -filter:"+[System.Linq.Dynamic.Core]* -[*Tests*]*" -nodefaultfilters -returntargetcode -oldstyle'
+  - codecov -f "coverage.xml"
