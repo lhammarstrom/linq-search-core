@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq.Search.Core.Attributes;
 using System.Reflection;
-using Linq.Search.Core.Attributes;
 
-namespace Linq.Search.Core.Extensions
+namespace System.Linq.Search.Core.Extensions
 {
     public static class ObjectExtensions
     {

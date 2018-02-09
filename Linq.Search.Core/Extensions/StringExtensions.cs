@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Linq.Search.Core.Extensions
+namespace System.Linq.Search.Core.Extensions
 {
     public static class StringExtensions
     {

@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using System.Linq.Dynamic.Core;
+﻿using System.Linq.Dynamic.Core;
 
-namespace Linq.Search.Core.Extensions
+namespace System.Linq.Search.Core.Extensions
 {
     public static class QueryableExtensions
     {

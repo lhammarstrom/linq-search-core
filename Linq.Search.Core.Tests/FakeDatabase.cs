@@ -1,5 +1,4 @@
-﻿using Linq.Search.Core.Attributes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Linq.Search.Core.Tests
@@ -21,6 +20,26 @@ namespace Linq.Search.Core.Tests
             };
         }
 
+        public IQueryable<Person> SearchForBruce()
+        {
+            var persons = new List<Person>
+            {
+                new Person
+                {
+                    Name = "Bruce Wayne",
+                    Description = "Batman",
+                    Facility = new Facility
+                    {
+                        Name = "Batcave"
+                    }
+                }
+            };
+
+            return persons
+                .AsQueryable();
+                //.SearchFor("Bruce");
+        }
+
         private void SeedPeople()
         {
             Persons = new List<Person>
@@ -38,6 +57,8 @@ namespace Linq.Search.Core.Tests
 
     public class Person
     {
+        public Person() { }
+
         public Person(string name, string favoriteFood, Facility facility, string description = "")
         {
             Name = name;
@@ -46,31 +67,33 @@ namespace Linq.Search.Core.Tests
             Description = description;
         }
 
-        [Searchable]
-        public string Name { get; }
+        //[Searchable]
+        public string Name { get; set; }
 
-        [Searchable]
-        public string FavoriteFood { get; }
+        //[Searchable]
+        public string FavoriteFood { get; set; }
 
-        public string Description { get; }
+        public string Description { get; set; }
 
-        [Searchable]
-        public Facility Facility { get; }
+        //[Searchable]
+        public Facility Facility { get; set; }
     }
 
     public class Facility
     {
+        public Facility() { }
+
         public Facility(string name, string address)
         {
             Name = name;
             Address = address;
         }
 
-        [Searchable]
-        public string Name { get; }
+        //[Searchable]
+        public string Name { get; set; }
 
-        public string Address { get; }
+        public string Address { get; set; }
 
-        public virtual List<Person> Persons { get; set; }
+        public virtual ICollection<Person> Persons { get; set; }
     }
 }
