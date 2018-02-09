@@ -12,6 +12,10 @@
     <ApplicationIcon>linq.search.ico</ApplicationIcon>
     <OutputType>Library</OutputType>
     <StartupObject />
+    <PackageIconUrl>https://github.com/lhammarstrom/linq.search.core/blob/master/Linq.Search.Core/linq.search.icon.svg</PackageIconUrl>
+    <RepositoryUrl>https://github.com/lhammarstrom/linq.search.core</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/lhammarstrom/linq.search.core</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/lhammarstrom/linq.search.core/blob/master/LICENSE</PackageLicenseUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.8.2" />
