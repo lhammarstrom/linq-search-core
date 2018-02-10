@@ -3,9 +3,13 @@
 [![codecov](https://codecov.io/gh/lhammarstrom/linq.search.core/branch/master/graph/badge.svg)](https://codecov.io/gh/lhammarstrom/linq.search.core)
 [![GitHub issues](https://img.shields.io/github/issues/lhammarstrom/linq.search.core.svg)](https://github.com/lhammarstrom/linq.search.core/issues)
 [![GitHub stars](https://img.shields.io/github/stars/lhammarstrom/linq.search.core.svg)](https://github.com/lhammarstrom/linq.search.core/stargazers)
+[![Gitter chat](https://badges.gitter.im/linq-search-core/gitter.png)](https://gitter.im/linq-search-core/gitter)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/lhammarstrom/linq.search.core/master/LICENSE)
 
-A fast and easy way to implement scalable searching with Linq in .NET. It uses reflection to gather all properties that one wants to search in, and then runs a query using dynamic linq and .Contains("{search}") to return all results which match the searchstring. 
+A fast and easy way to implement scalable searching with Linq in .NET. It uses reflection to gather all properties that one wants to search in, and then runs a query using dynamic linq and .Contains("{search}") to return all results which match the searchstring.
+
+### Improvements and general discussion 
+If you have any thoughts, improvements, or just want to chat about Linq.Search.Core, go to our [Gitter chat](https://gitter.im/linq-search-core/gitter) and join in on the discussions.
 
 ### Installing
 [![NuGet Badge](https://buildstats.info/nuget/Linq.Search.Core)](https://www.nuget.org/packages/Linq.Search.Core)
@@ -92,6 +96,11 @@ return persons
     .AsQueryable()
     .SearchFor("Bruce|Batcave");
 ```
+
+## Upcoming stuff
+* Implement .SearchFor() for all types of IEnumerables!
+* See if we can cut down dependencies.
+* Implement Levehstein-distance to order search-results by significance.
 
 ## Built With
 
