@@ -3,7 +3,7 @@
     <TargetFrameworks>net40;net45;net46;netstandard2.0</TargetFrameworks>
   </PropertyGroup>
   <PropertyGroup>
-    <Version>1.0.2</Version>
+    <Version>1.0.7</Version>
     <FileVersion>1.0.0</FileVersion>
     <Title>Linq Search - Search in databases using Linq and EF.</Title>
     <Summary>Extension-function for IQueryable interface to allow for searching in properties marked with [Searchable] atttribute using the extension "SearchFor("{query}")".</Summary>
@@ -17,13 +17,14 @@
     <RepositoryUrl>https://github.com/lhammarstrom/linq.search.core</RepositoryUrl>
     <PackageProjectUrl>https://github.com/lhammarstrom/linq.search.core</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/lhammarstrom/linq.search.core/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageReleaseNotes>Moved to core namespace.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added SearchFor for all types of IEnumerables.</PackageReleaseNotes>
     <Company>Lennart Hammarström Enskild Firma</Company>
     <DevelopmentDependency>false</DevelopmentDependency>
     <Language>English</Language>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageTags>linq search entityframework dynamic ef searchable queryable</PackageTags>
     <RootNamespace>System.Linq.Search.Core</RootNamespace>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="System.Linq.Dynamic.Core" Version="1.0.8.2" />
