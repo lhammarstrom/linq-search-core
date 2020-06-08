@@ -1,29 +1,30 @@
-﻿using System.Linq;
+using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Search.Core;
 using System.Linq.Search.Core.Extensions;
 using Xunit;
 
 namespace Linq.Search.Core.Tests
 {
-    public class Testing
+    public class IEnumerableTests
     {
         // reference both Persons and Facilities as their own IQueryable
         // so that we can run tests on them to see if our search-function
         // works
 
-        private readonly IQueryable<Person> _persons;
+        private readonly List<Person> _persons;
 
-        private readonly IQueryable<Facility> _facilities;
+        private readonly List<Facility> _facilities;
 
         // initiate with seed from database
-        public Testing()
+        public IEnumerableTests()
         {
             // seeding and creation
             var db = new FakeDatabase();
 
             // get queryables
-            _persons = db.Persons.AsQueryable();
-            _facilities = db.Facilities.AsQueryable();
+            _persons = db.Persons.ToList();
+            _facilities = db.Facilities.ToList();
         }
 
         // there is only one person called Bruce Wayne in our database
@@ -38,7 +39,7 @@ namespace Linq.Search.Core.Tests
         [Fact]
         public void AmountOfBruceTestList()
         {
-            var people = _persons.ToList().SearchFor("Bruce Wayne").Count();
+            var people = _persons.SearchFor("Bruce Wayne").Count();
             Assert.True(people == 1);
         }
 
@@ -54,7 +55,7 @@ namespace Linq.Search.Core.Tests
         [Fact]
         public void AmountOfPeopleInBatcaveList()
         {
-            var people = _persons.ToList().SearchFor("Batcave").Count();
+            var people = _persons.SearchFor("Batcave").Count();
             Assert.True(people == 2);
         }
 
@@ -70,14 +71,14 @@ namespace Linq.Search.Core.Tests
         [Fact]
         public void AmountOfBatcavesList()
         {
-            var facilities = _facilities.ToList().SearchFor("Batcave").Count();
+            var facilities = _facilities.SearchFor("Batcave").Count();
             Assert.True(facilities == 1);
         }
 
         [Fact]
         public void PeopleInBatcave()
         {
-            var people = _persons.SearchFor("Batcave");
+            var people = _persons.SearchFor("Batcave").ToList();
             Assert.True(people.Count(p => p.Name == "Bruce Wayne") == 1 &&
                         people.Count(p => p.Name == "Mary Poppins") == 1);
         }
