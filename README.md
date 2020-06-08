@@ -1,9 +1,6 @@
 # Linq.Search.Core
 [![Build status](https://ci.appveyor.com/api/projects/status/u8370f2si1qvreva?svg=true)](https://ci.appveyor.com/project/lhammarstrom/linq-search-core)
-[![codecov](https://codecov.io/gh/lhammarstrom/linq.search.core/branch/master/graph/badge.svg)](https://codecov.io/gh/lhammarstrom/linq.search.core)
 [![GitHub issues](https://img.shields.io/github/issues/lhammarstrom/linq.search.core.svg)](https://github.com/lhammarstrom/linq.search.core/issues)
-[![GitHub stars](https://img.shields.io/github/stars/lhammarstrom/linq.search.core.svg)](https://github.com/lhammarstrom/linq.search.core/stargazers)
-[![Gitter chat](https://badges.gitter.im/linq-search-core/gitter.png)](https://gitter.im/linq-search-core)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/lhammarstrom/linq.search.core/master/LICENSE)
 
 A fast and easy way to implement scalable searching with Linq in .NET. It uses reflection to gather all properties that one wants to search in, and then runs a query using dynamic linq and .Contains("{search}") to return all results which match the searchstring.
